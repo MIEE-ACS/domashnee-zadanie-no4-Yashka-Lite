@@ -56,7 +56,7 @@ namespace dz4
                     break;
                 }
             }
-            for (int i = indpos + 1; i < n; i++)
+            for (int i = indpos + 1; i < N; i++)
             {
                 sum += array[i];
             }
@@ -175,24 +175,24 @@ namespace dz4
                     array[i, j] = random.Next(A, B);
                 }
             }
+            int[] sum = new int[I];
+            double[] srednee = new double[I];
             for (int i = 0; i < I; i++)
             {
                 for (int j = 0; j < J; j++)
                 {
                     Console.Write("{0,3}", array[i, j]);
+                    sum[i] += array[i, j];
+                    srednee[i] = sum[i] / J;
                 }
                 Console.WriteLine();
             }
             Console.WriteLine("Массив приведенный к треугольному виду:");
-            int[] sum = new int[I];
-            double[] srednee = new double[I];
             for (int i = 0; i < I; i++)
             {
                 for (int j = i; j < J - i; j++)
                 {
                     Console.Write("{0,3}", array[i, j]);
-                    sum[i] += array[i, j];
-                    srednee[i] = sum[i] / (J - 2 * i);
                 }
                 Console.WriteLine();
             }
@@ -216,6 +216,7 @@ namespace dz4
                 }
             }
             Console.Write(score);
+            
         }
     }
 }
